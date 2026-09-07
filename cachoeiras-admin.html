@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard- Circuito Saquarema Verde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis CSS para cores */
+        :root {
+            --verde-principal: #28a745;
+            --verde-escuro: #1e7e34;
+            --azul-acao: #007bff;
+            --vermelho-restrito: #dc3545;
+            --cinza-claro: #f8f9fa;
+            --cinza-medio: #e9ecef;
+            --branco: #ffffff;
+            --texto-principal: #333;
+            --cinza-muito-escuro: #212529; 
+        }
+
+        /* Estilos globais */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cinza-claro);
+            color: var(--texto-principal);
+            line-height: 1.6;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--verde-escuro);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--azul-acao);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--branco);
+            color: var(--texto-principal);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-family: 'Cabin Sketch', cursive; 
+            font-size: 2.5em; 
+            font-weight: 700;
+            color: var(--verde-escuro); 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            line-height: 0.9;
+        }
+
+        /* Estilo para o ícone SVG de folha */
+        .header-logo .leaf-icon {
+            width: 35px; 
+            height: 35px;
+            margin-right: 10px; 
+            fill: var(--verde-principal); 
+            transform: rotate(-15deg); 
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo:hover .leaf-icon {
+            transform: rotate(0deg) scale(1.1); 
+        }
+
+        .header-logo span {
+            margin-left: 0; 
+            color: inherit; 
+        }
+        
+        /* Ações de navegação */
+        .actions-group {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+        
+        .actions-group a { 
+            color: var(--texto-principal);
+            font-weight: 600;
+            padding: 8px 12px; 
+            position: relative;
+            background-color: rgba(40, 167, 69, 0.05); 
+            border-radius: 4px;
+            transition: background-color 0.3s ease; 
+        }
+
+        .actions-group a:hover {
+            background-color: rgba(40, 167, 69, 0.15); 
+            text-decoration: none; 
+        }
+        /* Fim Cabeçalho */
+       
+        :root{
+          --verde:#28a745;
+          --verde-esc:#1e7e34;
+          --cinza:#f8f9fa;
+          --white:#fff;
+          --muted:#666;
+        }
+        *{
+          box-sizing:border-box
+        }
+        .container{
+          max-width:1200px;
+          margin:28px auto;
+          padding:22px;
+          background:var(--white);
+          border-radius:12px;
+          box-shadow:0 6px 22px rgba(0,0,0,0.06)
+        }
+        .top{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          gap:12px;
+          flex-wrap:wrap
+        }
+        .logout {
+          padding: 10px 20px;           
+          font-weight: 600;            
+          border-radius: 4px;          
+          background-color: #c82333; 
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .logout:hover {
+          background-color: #a10f23;
+        }
+          
+        .grid{
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:18px;
+          margin-top:18px
+        }
+          
+        @media(max-width:920px){
+          .grid{
+            grid-template-columns:1fr}
+          }
+        .card{
+          padding:12px;
+          border-radius:10px;
+          background:linear-gradient(180deg,#fff,#fff);
+          border:1px solid rgba(0,0,0,0.04)}
+
+        label{
+          display:block;
+          font-weight:700;
+          margin-bottom:6px;
+          color:var(--verde-esc)
+        }
+        input[
+          type="text"],
+        textarea{
+          width:100%;
+          padding:10px;
+          border-radius:8px;
+          border:1px solid #e6e6e6;
+          font-size:14px
+        }
+        textarea{
+          min-height:120px;
+          resize:vertical
+        }
+        input[type="file"]{
+          padding:6px
+        }
+        .preview{
+          width:100%;
+          max-height:260px;
+          object-fit:cover;
+          border-radius:8px;
+          margin-top:10px;
+          display:none;
+          border:1px solid #eee
+        }
+        .iframe-preview{
+          width:100%;
+          height:160px;
+          border-radius:8px;
+          border:none;
+          margin-top:10px;
+          display:none
+        }
+
+        .buttons{
+          margin-top:12px;
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap
+        }
+        .btn{
+          padding:10px 14px;
+          border-radius:8px;
+          border:none;
+          cursor:pointer;
+          font-weight:700
+        }
+        .btn-green{
+          background:var(--verde);
+          color:#fff
+        }
+        .btn-blue{
+          background:#007bff;
+          color:#fff
+        }
+        .btn-gray{
+          background:#6c757d;
+          color:#fff
+        }
+
+        .events-grid{
+          margin-top:22px;
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:20px
+        }
+
+        @media(
+          max-width:920px){.events-grid{
+            grid-template-columns:1fr}
+          }
+
+        .event-block{
+          background:#fff;
+          border-radius:8px;
+          overflow:hidden;
+          box-shadow:0 6px 18px rgba(0,0,0,0.05)
+        }
+        .event-banner{
+          width:100%;
+          height:200px;
+          object-fit:cover;
+          display:block
+        }
+        .event-card{
+          padding:14px
+        }
+        .event-card h2{
+          margin:0;color:var(--verde-esc);
+          font-size:1.15rem
+        }
+        .event-card p{
+          margin:8px 0;
+          color:#333;
+          font-size:0.95rem
+          text-align:center;
+          overflow-wrap:break-word;
+          word-break:break-word;
+        }
+        .card-actions{
+          display:flex;
+          gap:8px;
+          justify-content:flex-end;
+          margin-top:10px
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+        <a href="index.html" class="header-logo">
+            <svg class="leaf-icon" viewBox="0 0 24 24">
+                <path d="M17 8c-1.66-1.66-4.66-2.02-7-.75C8.34 8.79 7 11.5 7 14c0 3 2 6 6 6s6-3 6-6c0-2.5-1.34-5.21-3-7zM8 12c.5-1.5 1.5-2.5 3-3 .75-.38 1.5-.75 2.25-1.13.75.38 1.5.75 2.25-1.13C16 4 14 2 12 2S8 4 8 8c0 2.5 1.34-5.21 3 7 .75.38 1.5.75 2.25 1.13.75.38 1.5.75 2.25 1.13C16 20 14 22 12 22S8 20 8 16c0-2.5 1.34-5.21 3-7z" fill="currentColor"/>
+            </svg>
+            <span>Circuito Saquarema Verde</span>
+        </a>
+    
+    <div class="actions-group">
+        <button id="btnLogout" class="logout">Sair</button>
+    </div>
+</header>
+
+<div class="container">
+  <div class="top">
+    <h1 style="margin:0;color:var(--verde-esc);font-family:'Montserrat',sans-serif">DASHBOARD DE CACHOEIRAS</h1>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <label>1- Anexar imagem de fundo:</label>
+      <input type="file" id="file" accept="image/*">
+      <img id="imgPreview" class="preview" alt="Preview imagem">
+
+      <label style="margin-top:12px">2- Título:</label>
+      <input type="text" id="title">
+
+      <label style="margin-top:12px">3- Descrição:</label>
+      <textarea id="description"></textarea>
+
+      <label style="margin-top:12px">4- Link do local do cachoeira:</label>
+      <input type="text" id="url" placeholder="Colar o código html gerado pelo Google Maps!">
+
+      <div class="buttons">
+        <button id="createBtn" class="btn btn-green">Criar Evento</button>
+        <button id="saveBtn" class="btn btn-blue" style="display:none">Salvar Alterações</button>
+        <button id="clearBtn" class="btn btn-gray">Limpar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <label>Prévia do Local:</label>
+      <iframe id="iframePreview" class="iframe-preview"></iframe>
+      <div style="margin-top:14px;font-weight:700;color:var(--verde-esc)">Como pegar o link do local:</div>
+      <p style="margin:8px 0 0 16px;color:#555">
+      <p>1º. Localizar o local do evento no Google Maps;</p>
+      <p>2º. Clicar em "compartilhar";</p>
+      <p>3º. Clicar na guia "Incorporar um mapa";</p>
+      <p>4º. Clicar em "COPIAR LINK".</p>
+    </div>
+  </div>
+
+  <div style="margin-top:28px">
+    <h2 style="margin:0 0 12px 0;color:var(--verde-esc)">GERENCIAR CACHOEIRAS:</h2>
+    <div class="events-grid" id="eventsGrid"></div>
+  </div>
+
+</div>
+
+<script>
+/* proteção de acesso */
+if(localStorage.getItem('auth')!=='true'){ window.location.href='admin.html'; }
+
+const fileInput = document.getElementById('file');
+const imgPreview = document.getElementById('imgPreview');
+const iframePreview = document.getElementById('iframePreview');
+const titleEl = document.getElementById('title');
+const descEl = document.getElementById('description');
+const urlEl = document.getElementById('url');
+const createBtn = document.getElementById('createBtn');
+const saveBtn = document.getElementById('saveBtn');
+const clearBtn = document.getElementById('clearBtn');
+const btnLogout = document.getElementById('btnLogout');
+const eventsGrid = document.getElementById('eventsGrid');
+
+let cachoeiras = JSON.parse(localStorage.getItem('cachoeiras')||'[]');
+let editIndex = -1;
+
+function dataURLFromFile(file, cb){
+  const r = new FileReader();
+  r.onload = e => cb(e.target.result);
+  r.readAsDataURL(file);
+}
+
+fileInput.addEventListener('change', e=>{
+  const f = e.target.files[0];
+  if(!f){ imgPreview.style.display='none'; imgPreview.src=''; return; }
+  dataURLFromFile(f, dataUrl=>{
+    imgPreview.src = dataUrl; imgPreview.style.display='block';
+  });
+});
+
+urlEl.addEventListener('input', ()=>{
+  const v = urlEl.value.trim();
+  if(!v){ iframePreview.style.display='none'; iframePreview.src=''; return; }
+  const m = v.match(/src=["']([^"']+)["']/i);
+  const src = m ? m[1] : v;
+  iframePreview.src = src; iframePreview.style.display='block';
+});
+
+function saveCachoeiras(){ localStorage.setItem('cachoeiras', JSON.stringify(cachoeiras)); }
+
+function render(){
+  eventsGrid.innerHTML='';
+  if(!cachoeiras.length){
+    eventsGrid.innerHTML = '<div style="grid-column:1/-1;padding:18px;background:#fff;border-radius:8px;border:1px solid #eee;color:#555">Nenhum evento cadastrado.</div>';
+    return;
+  }
+  cachoeiras.forEach((ev, idx)=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'event-block';
+    wrap.innerHTML = `
+      <img src="${ev.imagem}" class="event-banner" onerror="this.style.display='none'">
+      <div class="event-card">
+        <h2>${escapeHtml(ev.titulo)}</h2>
+        <p>${escapeHtml(ev.descricao)}</p>
+        ${ev.mapa ? `<iframe src="${ev.mapa}" style="width:100%;height:160px;border:none;border-radius:8px;margin-top:10px"></iframe>` : ''}
+        <div class="card-actions">
+          <button class="btn btn-blue" onclick="editar(${idx})">Editar</button>
+          <button class="btn btn-gray" style="background:#c82333;color:#fff" onclick="remover(${idx})">Excluir</button>
+          ${ev.urlExterna ? `<a class="btn btn-blue" href="${ev.urlExterna}" target="_blank" style="text-decoration:none;padding:8px 10px;border-radius:8px">Abrir local</a>` : ''}
+        </div>
+      </div>
+    `;
+    eventsGrid.appendChild(wrap);
+  });
+}
+
+function escapeHtml(s){ if(!s) return ''; return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;').replaceAll('\n','<br>'); }
+
+createBtn.addEventListener('click', ()=>{
+  const titulo = titleEl.value.trim();
+  const descricao = descEl.value.trim();
+  const urlRaw = urlEl.value.trim();
+  if(!titulo || !descricao){ alert('Preencha título e descrição.'); return; }
+  const m = urlRaw.match(/src=["']([^"']+)["']/i);
+  const mapaSrc = m ? m[1] : urlRaw;
+  const file = fileInput.files[0];
+  if(file){
+    dataURLFromFile(file, dataUrl=>{
+      cachoeiras.unshift({ imagem: dataUrl, titulo: titulo, descricao: descricao, mapa: mapaSrc||'', urlExterna: (!m && urlRaw) ? urlRaw : '' });
+      saveCachoeiras(); render(); clearForm();
+    });
+  } else {
+    const imagemAtual = imgPreview.src || 'cachoeiras/img2.jpg';
+    cachoeiras.unshift({ imagem: imagemAtual, titulo: titulo, descricao: descricao, mapa: mapaSrc||'', urlExterna: (!m && urlRaw) ? urlRaw : '' });
+    saveCachoeiras(); render(); clearForm();
+  }
+});
+
+function editar(i){
+  editIndex = i;
+  const ev = cachoeiras[i];
+  if(ev.imagem){ imgPreview.src = ev.imagem; imgPreview.style.display='block'; } else { imgPreview.style.display='none'; }
+  titleEl.value = ev.titulo || ''; descEl.value = ev.descricao || ''; urlEl.value = ev.mapa || ev.urlExterna || '';
+  iframePreview.src = ev.mapa || ''; iframePreview.style.display = ev.mapa ? 'block' : 'none';
+  createBtn.style.display='none'; saveBtn.style.display='inline-block'; window.scrollTo({top:0,behavior:'smooth'});
+}
+
+saveBtn.addEventListener('click', ()=>{
+  if(editIndex===-1) return;
+  const titulo = titleEl.value.trim(); const descricao = descEl.value.trim(); const urlRaw = urlEl.value.trim();
+  if(!titulo||!descricao){ alert('Preencha título e descrição.'); return; }
+  const m = urlRaw.match(/src=["']([^"']+)["']/i); const mapaSrc = m ? m[1] : urlRaw;
+  const file = fileInput.files[0];
+  if(file){
+    dataURLFromFile(file, dataUrl=>{
+      cachoeiras[editIndex] = { imagem: dataUrl, titulo: titulo, descricao: descricao, mapa: mapaSrc||'', urlExterna: (!m && urlRaw) ? urlRaw : '' };
+      saveCachoeiras(); render(); clearForm(); resetEdit();
+    });
+  } else {
+    cachoeiras[editIndex].imagem = imgPreview.src || cachoeiras[editIndex].imagem || '';
+    cachoeiras[editIndex].titulo = titulo; cachoeiras[editIndex].descricao = descricao; cachoeiras[editIndex].mapa = mapaSrc||''; cachoeiras[editIndex].urlExterna = (!m && urlRaw) ? urlRaw : '';
+    saveCachoeiras(); render(); clearForm(); resetEdit();
+  }
+});
+
+function remover(i){ if(!confirm('Excluir evento?')) return; cachoeiras.splice(i,1); saveCachoeiras(); render(); }
+
+clearBtn.addEventListener('click', clearForm);
+btnLogout.addEventListener('click', ()=>{ localStorage.removeItem('auth'); window.location.href='index.html'; });
+
+function clearForm(){
+  fileInput.value=''; imgPreview.src=''; imgPreview.style.display='none'; iframePreview.src=''; iframePreview.style.display='none';
+  titleEl.value=''; descEl.value=''; urlEl.value='';
+}
+function resetEdit(){ editIndex=-1; createBtn.style.display='inline-block'; saveBtn.style.display='none'; }
+
+render(); resetEdit();
+</script>
+
+</body>
+</html>
