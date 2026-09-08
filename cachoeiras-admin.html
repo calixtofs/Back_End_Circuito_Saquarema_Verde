@@ -299,6 +299,7 @@
         </a>
     
     <div class="actions-group">
+        <a href="admin2.html" class="logout">Voltar</a>
         <button id="btnLogout" class="logout">Sair</button>
     </div>
 </header>
@@ -395,7 +396,7 @@ function saveCachoeiras(){ localStorage.setItem('cachoeiras', JSON.stringify(cac
 function render(){
   eventsGrid.innerHTML='';
   if(!cachoeiras.length){
-    eventsGrid.innerHTML = '<div style="grid-column:1/-1;padding:18px;background:#fff;border-radius:8px;border:1px solid #eee;color:#555">Nenhum evento cadastrado.</div>';
+    eventsGrid.innerHTML = '<div style="grid-column:1/-1;padding:18px;background:#fff;border-radius:8px;border:1px solid #eee;color:#555">Nenhuma cachoeira cadastrada.</div>';
     return;
   }
   cachoeiras.forEach((ev, idx)=>{
