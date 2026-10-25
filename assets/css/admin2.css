@@ -1,0 +1,390 @@
+
+        /* Variáveis CSS para cores */
+        :root {
+            --verde-principal: #28a745;
+            --verde-escuro: #1e7e34;
+            --azul-acao: #007bff;
+            --vermelho-restrito: #dc3545;
+            --cinza-claro: #f8f9fa;
+            --cinza-medio: #e9ecef;
+            --branco: #ffffff;
+            --texto-principal: #333;
+            --cinza-muito-escuro: #212529; 
+        }
+
+        /* Estilos globais */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cinza-claro);
+            color: var(--texto-principal);
+            line-height: 1.6;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--verde-escuro);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--azul-acao);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cabeçalho */
+
+        header {
+            background-color: var(--branco);
+            color: var(--texto-principal);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-family: 'Cabin Sketch', cursive; 
+            font-size: 2.5em; 
+            font-weight: 700;
+            color: var(--verde-escuro); 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            line-height: 0.9;
+        }
+
+        /* Estilo para o ícone SVG de folha */
+        .header-logo .leaf-icon {
+            width: 35px; 
+            height: 35px;
+            margin-right: 10px; 
+            fill: var(--verde-principal); 
+            transform: rotate(-15deg); 
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo:hover .leaf-icon {
+            transform: rotate(0deg) scale(1.1); 
+        }
+
+        .header-logo span {
+            margin-left: 0; 
+            color: inherit; 
+        }
+        
+        /* Ações de navegação */
+        .actions-group {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+        
+        .actions-group a { 
+            color: var(--texto-principal);
+            font-weight: 600;
+            padding: 8px 12px; 
+            position: relative;
+            background-color: rgba(40, 167, 69, 0.05); 
+            border-radius: 4px;
+            transition: background-color 0.3s ease; 
+        }
+
+        .actions-group a:hover {
+            background-color: rgba(40, 167, 69, 0.15); 
+            text-decoration: none; 
+        }
+        /* Fim Cabeçalho */
+
+        
+        /* Seção Principal */
+        .main-content {
+            max-width: 500px;
+            margin: 80px auto 40px;
+            padding: 40px;
+            background-color: var(--branco);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .main-content h1 {
+            color: var(--verde-escuro); 
+            margin-bottom: 30px;
+            font-size: 2.2em; 
+            text-transform: uppercase;
+        }
+
+        /* Estilo dos campos de formulário */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 5px;
+            box-sizing: border-box; 
+            font-size: 1em;
+        }
+
+        /* Estilo para o Botão de Login */
+        .login-button {
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            font-weight: 600;
+            padding: 8px 12px; 
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            width: 100%; 
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            background-color: var(--verde-escuro);
+        }
+
+        /* Estilo para o grupo de navegação inferior */
+        .navigation-footer {
+            max-width: 1200px;
+            margin: 40px auto; 
+            padding: 20px;
+            text-align: center; 
+            border-top: 1px solid var(--cinza-medio); 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+        }
+
+        .navigation-footer h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 20px;
+            width: 100%; 
+        }
+
+        .navigation-footer a {
+            color: var(--branco);
+            font-weight: 700; 
+            padding: 18px 36px; 
+            border-radius: 6px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.15em; 
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-size: cover;
+            background-position: center;
+            position: relative; 
+            overflow: hidden; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); 
+            border: 2px solid transparent; 
+            flex: 1; 
+            min-width: 200px; 
+            max-width: 280px; 
+            text-align: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 80px; 
+        }
+
+        .navigation-footer a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)); 
+            z-index: 1; 
+            transition: background 0.3s ease;
+        }
+
+        .navigation-footer a span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navigation-footer a:hover::before {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)); 
+        }
+
+        .navigation-footer a:hover {
+            transform: translateY(-2px); 
+            text-decoration: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            border-color: var(--verde-principal); 
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA CADA BOTÃO COM IMAGEM */
+        #btn-trilhas {
+            background-image: url('../../index/img5.jpg');
+        }
+
+        #btn-cachoeiras {
+            background-image: url('../../index/img6.jpg');
+        }
+
+        #btn-eventos {
+            background-image: url('../../index/img7.jpg');
+        }
+
+        .actions-group .logout {
+            color: var(--branco);
+            background: var(--verde-escuro);
+            border: 0;
+            border-radius: 4px;
+            padding: 8px 14px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .admin-accounts {
+            width: min(100% - 40px, 1000px);
+            margin: 0 auto 48px;
+            padding: 24px;
+            background: var(--branco);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .admin-accounts[hidden] {
+            display: none;
+        }
+
+        .admin-accounts > p {
+            color: #555;
+        }
+
+        .admin-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .admin-slot {
+            display: grid;
+            gap: 10px;
+            padding: 16px;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 8px;
+        }
+
+        .admin-slot h3 {
+            margin: 0;
+        }
+
+        .admin-slot label {
+            display: grid;
+            gap: 5px;
+            font-weight: 600;
+        }
+
+        .admin-slot input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        .admin-slot button {
+            padding: 10px 12px;
+            border: 0;
+            border-radius: 5px;
+            color: var(--branco);
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .admin-slot .btn-green {
+            background: var(--verde-principal);
+        }
+
+        .admin-slot .btn-gray {
+            background: #6c757d;
+        }
+
+        .admin-slot button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .header-logo {
+                 text-align: center;
+                 width: 100%;
+            }
+
+            .actions-group {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 15px;
+                max-width: 100%; 
+                margin: 10px auto 0 auto; 
+            }
+            .actions-group a {
+                font-size: 0.9em; 
+                flex: 0 0 auto; 
+                min-width: unset; 
+            }
+
+            .hero-section {
+                padding: 30px 20px; 
+                min-height: 280px; 
+                align-items: flex-start; 
+                text-align: left; 
+            }
+            .hero-section h1 {
+                margin-left: 0; 
+                font-size: 2.5em; 
+                max-width: 100%; 
+            }
+        }
+    

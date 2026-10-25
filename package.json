@@ -1,0 +1,12 @@
+{
+  "name": "circuito-saquarema-verde",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site do Circuito Saquarema Verde com autenticação administrativa e SQLite.",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

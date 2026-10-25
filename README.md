@@ -19,10 +19,19 @@
     Responsável pela estilização e aparência visual do sistema, incluindo cores, tamanhos, espaçamentos, disposição dos botões, responsividade e layout geral das páginas.    
   - JAVASCRIPT
     Aplicado para adicionar interatividade e dinamismo ao site, como navegação entre páginas, controle de exibição de elementos, validação de campos e funcionamento da área restrita (dashboard e autenticação).    
+  - NODE.JS E SQLITE
+    Utilizados para autenticar os administradores no servidor e armazenar as contas em um banco SQLite local.
 ## EXECUTANDO O MVP
-  1- Localize a pasta do projeto em seu computador.
-  2- Procure o arquivo index.html, dê um duplo clique no arquivo ou abra-o pelo navegador de sua preferência (Chrome, Edge, Firefox, etc.).
-  3- Ao abrir, a página inicial será exibida com as principais opções de navegação: Trilhas, Cachoeiras, Eventos e pontos em destaque.
+  1- Instale o Node.js 22.13 ou superior.
+  2- Abra o terminal na pasta do projeto e execute `npm start`.
+  3- Acesse `http://localhost:3000` no navegador. Não abra os arquivos HTML diretamente pelo navegador: o login precisa do servidor.
+  4- O banco SQLite `database/administrators.sqlite` será criado automaticamente na primeira inicialização.
+
+## ADMINISTRAÇÃO E BANCO DE DADOS
+  - A conta principal inicial é `Admin`, com a senha `saquarema`. A senha é armazenada no SQLite como hash, não em texto simples.
+  - Entre com essa conta e, no painel de administração, preencha os seis espaços para criar os outros administradores. As senhas novas devem ter pelo menos 12 caracteres.
+  - Apenas a conta principal pode definir, editar ou remover as seis contas adicionais. Remover uma conta também encerra suas sessões ativas.
+  - A estrutura do banco está em `database/schema.sql`; o arquivo SQLite é gerado localmente e não deve ser versionado.
 ## INFORMAÇÕES ADICIONAIS
   - Foram criados 3 protótipos, mvp_1, mvp_2 e mvp_3.
 ## MVP DEFINIDO 
@@ -36,9 +45,6 @@
  ## DORES DO PÚBLICO ALVO
   - FALTA DE INFORMAÇÃO SOBRE LOCALIZAÇÃO DE TRILHAS
   - DIFICULDADE EM ENCONTRAR INFORMAÇÕES SOBRE ECOTURISMO
-
-
-
 
 
 
